@@ -34,7 +34,8 @@ character_x_pos = screen_width / 2 - character_width / 2
 character_y_pos = screen_height - character_height
 
 # 이동좌표
-to_x = 0
+to_x_LEFT = 0
+to_x_RIGHT = 0
 
 # 이동속도
 character_speed = 0.6
@@ -80,14 +81,15 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                to_x -= character_speed
+                to_x_LEFT -= character_speed
             elif event.key == pygame.K_RIGHT:
-                to_x += character_speed
+                to_x_RIGHT += character_speed
         
         if event.type == pygame.KEYUP:
-            to_x = 0
+            to_x_LEFT = 0
+            to_x_RIGHT = 0
 
-    character_x_pos += to_x * dt
+    character_x_pos += to_x_LEFT * dt + to_x_RIGHT * dt
 
     # 가로 경계값 처리
     if character_x_pos < 0:
