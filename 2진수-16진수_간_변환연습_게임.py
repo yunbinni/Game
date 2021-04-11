@@ -1,4 +1,10 @@
 from random import *
+import winsound as ws
+
+def beepsound():
+    freq = 2000    # range : 37 ~ 32767
+    dur = 500     # ms
+    ws.Beep(freq, dur) # winsound.Beep(frequency, duration)
 
 binaryList = ['0000', '0001', '0010', '0011', '0100', '0101', '0110', '0111', '1000', '1001', '1010', '1011', '1100', '1101', '1110', '1111']
 hexaList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
@@ -37,6 +43,7 @@ if __name__== "__main__":
                         print("정답입니다!\t문제 수 : %d\t정답 수 : %d\t\n" % (totalCount, correctCount))
                     else:
                         totalCount += 1
+                        beepsound()
                         print("틀렸습니다!\t정답은 %s입니다.\t문제 수 : %d\t정답 수 : %d\t\n" % (hexaList[num], totalCount, correctCount))
                     
                     obj = int(input("계속하시겠습니까? 1 - 예 / 0 - 아니오 : "))
@@ -57,6 +64,7 @@ if __name__== "__main__":
                         print("정답입니다!\t문제 수 : %d\t정답 수 : %d\t\n" % (totalCount, correctCount))
                     else:
                         totalCount += 1
+                        beepsound()
                         print("틀렸습니다!\t정답은 %s입니다.\t문제 수 : %d\t정답 수 : %d\t\n" % (binaryList[num], totalCount, correctCount))
                     
                     obj = int(input("계속하시겠습니까? 1 - 예 / 0 - 아니오 : "))
